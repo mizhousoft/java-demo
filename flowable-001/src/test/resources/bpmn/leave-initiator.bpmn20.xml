@@ -7,7 +7,7 @@
 	<process id="stuLeave" name="学生请假流程" isExecutable="true">
 		<documentation>学校学生请假流程</documentation>
 		<startEvent id="startEvent1" name="开始" flowable:initiator="initiator" flowable:formFieldValidation="true"></startEvent>
-		<userTask id="apply" name="请假申请" flowable:assignee="${initiator}" flowable:formFieldValidation="true">
+		<userTask id="apply" name="请假申请" flowable:assignee="#{initiator}" flowable:formFieldValidation="true">
 			<extensionElements>
 				<modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
 			</extensionElements>
