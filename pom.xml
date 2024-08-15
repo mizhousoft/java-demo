@@ -22,6 +22,8 @@
 	<modules>
 		<module>byte-buddy-001</module>
 		<module>flowable-001</module>
+		<module>mina-sshd-001</module>
+		<module>snowflake</module>
 	</modules>
 
 </project>
