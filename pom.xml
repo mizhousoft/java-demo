@@ -24,6 +24,7 @@
 		<module>flowable-001</module>
 		<module>mina-sshd-001</module>
 		<module>snowflake</module>
+		<module>mybatis-script-runner</module>
 	</modules>
 
 </project>
