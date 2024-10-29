@@ -26,6 +26,11 @@
 		    <version>7.0.1</version>
 		</dependency>
 		<dependency>
+	        <groupId>org.flowable</groupId>
+	        <artifactId>flowable-spring-boot-starter</artifactId>
+	        <version>7.0.1</version>
+	    </dependency>
+		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 		</dependency>
