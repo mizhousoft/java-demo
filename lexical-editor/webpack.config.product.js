@@ -16,7 +16,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, './dist/assets'),
-        publicPath: "/mall/assets/",
+        publicPath: "/assets/",
         filename: '[id]-[chunkhash].js',
         chunkFilename: '[id]-[chunkhash].js'
     },
