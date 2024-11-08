@@ -8,11 +8,11 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { $getRoot } from 'lexical';
 
-import ExampleTheme from './ExampleTheme';
-import MyOnChangePlugin from './MyOnChangePlugin';
-import ToolbarPlugin from './ToolbarPlugin';
-import TreeViewPlugin from './TreeViewPlugin';
-import HtmlPlugin from './HtmlPlugin';
+import ExampleTheme from './themes/EditorTheme';
+import MyOnChangePlugin from './plugins/MyOnChangePlugin';
+import ToolbarPlugin from './plugins/ToolbarPlugin';
+import TreeViewPlugin from './plugins/TreeViewPlugin';
+import HtmlPlugin from './plugins/HtmlPlugin';
 
 import './index.css';
 
