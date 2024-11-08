@@ -1,4 +1,5 @@
 import React from 'react';
+
 import RichEditor from './RichEditor';
 
 export default function App() {
@@ -8,9 +9,7 @@ export default function App() {
         console.error(error);
     }
 
-    function onChange(editorState) {
-
-    }
+    function onChange(editorState) {}
 
     const exportHtml = () => {
         const htmlString = editorRef.current.exportHtml();

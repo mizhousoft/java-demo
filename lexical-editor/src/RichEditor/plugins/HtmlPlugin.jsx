@@ -17,7 +17,7 @@ function HtmlPlugin(props, ref) {
     };
 
     useImperativeHandle(ref, () => ({
-        exportHtml: exportHtml,
+        exportHtml,
     }));
 
     return null;

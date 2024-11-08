@@ -3,10 +3,12 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 
 export default function MyOnChangePlugin({ onChange }) {
     const [editor] = useLexicalComposerContext();
-    useEffect(() => {
-        return editor.registerUpdateListener(({ editorState }) => {
-            onChange(editor, editorState);
-        });
-    }, [editor, onChange]);
+    useEffect(
+        () =>
+            editor.registerUpdateListener(({ editorState }) => {
+                onChange(editor, editorState);
+            }),
+        [editor, onChange]
+    );
     return null;
 }

@@ -47,39 +47,41 @@ export default function ToolbarPlugin() {
         }
     }, []);
 
-    useEffect(() => {
-        return mergeRegister(
-            editor.registerUpdateListener(({ editorState }) => {
-                editorState.read(() => {
-                    $updateToolbar();
-                });
-            }),
-            editor.registerCommand(
-                SELECTION_CHANGE_COMMAND,
-                (_payload, _newEditor) => {
-                    $updateToolbar();
-                    return false;
-                },
-                LowPriority
+    useEffect(
+        () =>
+            mergeRegister(
+                editor.registerUpdateListener(({ editorState }) => {
+                    editorState.read(() => {
+                        $updateToolbar();
+                    });
+                }),
+                editor.registerCommand(
+                    SELECTION_CHANGE_COMMAND,
+                    (_payload, _newEditor) => {
+                        $updateToolbar();
+                        return false;
+                    },
+                    LowPriority
+                ),
+                editor.registerCommand(
+                    CAN_UNDO_COMMAND,
+                    (payload) => {
+                        setCanUndo(payload);
+                        return false;
+                    },
+                    LowPriority
+                ),
+                editor.registerCommand(
+                    CAN_REDO_COMMAND,
+                    (payload) => {
+                        setCanRedo(payload);
+                        return false;
+                    },
+                    LowPriority
+                )
             ),
-            editor.registerCommand(
-                CAN_UNDO_COMMAND,
-                (payload) => {
-                    setCanUndo(payload);
-                    return false;
-                },
-                LowPriority
-            ),
-            editor.registerCommand(
-                CAN_REDO_COMMAND,
-                (payload) => {
-                    setCanRedo(payload);
-                    return false;
-                },
-                LowPriority
-            )
-        );
-    }, [editor, $updateToolbar]);
+        [editor, $updateToolbar]
+    );
 
     return (
         <div className='toolbar' ref={toolbarRef}>
@@ -108,7 +110,7 @@ export default function ToolbarPlugin() {
                 onClick={() => {
                     editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
                 }}
-                className={'toolbar-item spaced ' + (isBold ? 'active' : '')}
+                className={`toolbar-item spaced ${isBold ? 'active' : ''}`}
                 aria-label='Format Bold'
             >
                 <i className='format bold' />
@@ -117,7 +119,7 @@ export default function ToolbarPlugin() {
                 onClick={() => {
                     editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'italic');
                 }}
-                className={'toolbar-item spaced ' + (isItalic ? 'active' : '')}
+                className={`toolbar-item spaced ${isItalic ? 'active' : ''}`}
                 aria-label='Format Italics'
             >
                 <i className='format italic' />
@@ -126,7 +128,7 @@ export default function ToolbarPlugin() {
                 onClick={() => {
                     editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'underline');
                 }}
-                className={'toolbar-item spaced ' + (isUnderline ? 'active' : '')}
+                className={`toolbar-item spaced ${isUnderline ? 'active' : ''}`}
                 aria-label='Format Underline'
             >
                 <i className='format underline' />
@@ -135,7 +137,7 @@ export default function ToolbarPlugin() {
                 onClick={() => {
                     editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'strikethrough');
                 }}
-                className={'toolbar-item spaced ' + (isStrikethrough ? 'active' : '')}
+                className={`toolbar-item spaced ${isStrikethrough ? 'active' : ''}`}
                 aria-label='Format Strikethrough'
             >
                 <i className='format strikethrough' />

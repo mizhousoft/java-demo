@@ -8,11 +8,11 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { $getRoot } from 'lexical';
 
-import ExampleTheme from './themes/EditorTheme';
+import HtmlPlugin from './plugins/HtmlPlugin';
 import MyOnChangePlugin from './plugins/MyOnChangePlugin';
 import ToolbarPlugin from './plugins/ToolbarPlugin';
 import TreeViewPlugin from './plugins/TreeViewPlugin';
-import HtmlPlugin from './plugins/HtmlPlugin';
+import ExampleTheme from './themes/EditorTheme';
 
 import './index.css';
 
@@ -49,7 +49,7 @@ function RichEditor(props, ref) {
     };
 
     useImperativeHandle(ref, () => ({
-        exportHtml: exportHtml,
+        exportHtml,
     }));
 
     const initialConfig = {
