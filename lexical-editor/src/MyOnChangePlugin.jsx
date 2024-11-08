@@ -5,7 +5,7 @@ export default function MyOnChangePlugin({ onChange }) {
     const [editor] = useLexicalComposerContext();
     useEffect(() => {
         return editor.registerUpdateListener(({ editorState }) => {
-            onChange(editorState);
+            onChange(editor, editorState);
         });
     }, [editor, onChange]);
     return null;
