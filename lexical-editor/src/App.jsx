@@ -39,7 +39,9 @@ export default function App() {
 
     return (
         <>
-            <button onClick={exportHtml}>Export</button>
+            <button type='button' onClick={exportHtml}>
+                Export
+            </button>
 
             <RichEditor ref={editorRef} placeholder='Enter some rich text...' value={htmlString} onError={onError} onChange={onChange} />
         </>

@@ -30,7 +30,9 @@ function RichEditor(props, ref) {
 
             const nodes = $generateNodesFromDOM(editor, dom);
 
-            for (const node of nodes) {
+            for (let i = 0; i < nodes.length; ++i) {
+                const node = nodes[i];
+
                 try {
                     rootNode.append(node);
                 } catch (err) {
