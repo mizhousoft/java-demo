@@ -63,25 +63,25 @@ function RichEditor(props, ref) {
 
     return (
         <LexicalComposer initialConfig={initialConfig}>
+            <ToolbarPlugin />
             <div className='editor-container'>
-                <ToolbarPlugin />
-                <div className='editor-inner'>
+                <div className='editor-scroller'>
                     <RichTextPlugin
                         contentEditable={
                             <ContentEditable
-                                className='editor-input'
+                                className='ContentEditable__root'
                                 aria-placeholder={placeholder}
-                                placeholder={<div className='editor-placeholder'>{placeholder}</div>}
+                                placeholder={<div className='ContentEditable__placeholder'>{placeholder}</div>}
                             />
                         }
                         ErrorBoundary={LexicalErrorBoundary}
                     />
                     <HistoryPlugin />
                     <AutoFocusPlugin />
-                    <TreeViewPlugin />
                     <HtmlPlugin ref={htmlPluginRef} />
                 </div>
             </div>
+            <TreeViewPlugin />
             <MyOnChangePlugin onChange={onChange} />
         </LexicalComposer>
     );

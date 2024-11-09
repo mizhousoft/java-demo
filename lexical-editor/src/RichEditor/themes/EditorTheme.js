@@ -1,35 +1,39 @@
-export default {
-    code: 'editor-code',
+import './PlaygroundEditorTheme.css';
+
+const theme = {
+    code: 'PlaygroundEditorTheme__code',
     heading: {
-        h1: 'editor-heading-h1',
-        h2: 'editor-heading-h2',
-        h3: 'editor-heading-h3',
-        h4: 'editor-heading-h4',
-        h5: 'editor-heading-h5',
+        h1: 'PlaygroundEditorTheme__heading-h1',
+        h2: 'PlaygroundEditorTheme__heading-h2',
+        h3: 'PlaygroundEditorTheme__heading-h3',
+        h4: 'PlaygroundEditorTheme__heading-h4',
+        h5: 'PlaygroundEditorTheme__heading-h5',
     },
-    image: 'editor-image',
-    link: 'editor-link',
+    image: 'PlaygroundEditorTheme__image',
+    link: 'PlaygroundEditorTheme__link',
     list: {
-        listitem: 'editor-listitem',
+        listitem: 'PlaygroundEditorTheme__listitem',
         nested: {
-            listitem: 'editor-nested-listitem',
+            listitem: 'PlaygroundEditorTheme__nested-listitem',
         },
-        ol: 'editor-list-ol',
-        ul: 'editor-list-ul',
+        ol: 'PlaygroundEditorTheme__list-ol',
+        ul: 'PlaygroundEditorTheme__list-ul',
     },
     ltr: 'ltr',
-    paragraph: 'editor-paragraph',
-    placeholder: 'editor-placeholder',
-    quote: 'editor-quote',
+    paragraph: 'PlaygroundEditorTheme__paragraph',
+    placeholder: 'PlaygroundEditorTheme__placeholder',
+    quote: 'PlaygroundEditorTheme__quote',
     rtl: 'rtl',
     text: {
-        bold: 'editor-text-bold',
-        code: 'editor-text-code',
-        hashtag: 'editor-text-hashtag',
-        italic: 'editor-text-italic',
-        overflowed: 'editor-text-overflowed',
-        strikethrough: 'editor-text-strikethrough',
-        underline: 'editor-text-underline',
-        underlineStrikethrough: 'editor-text-underlineStrikethrough',
+        bold: 'PlaygroundEditorTheme__text-bold',
+        code: 'PlaygroundEditorTheme__text-code',
+        hashtag: 'PlaygroundEditorTheme__text-hashtag',
+        italic: 'PlaygroundEditorTheme__text-italic',
+        overflowed: 'PlaygroundEditorTheme__text-overflowed',
+        strikethrough: 'PlaygroundEditorTheme__text-strikethrough',
+        underline: 'PlaygroundEditorTheme__text-underline',
+        underlineStrikethrough: 'PlaygroundEditorTheme__text-underlineStrikethrough',
     },
 };
+
+export default theme;

@@ -9,7 +9,7 @@ export default function App() {
         console.error(error);
     }
 
-    function onChange(editorState) {}
+    function onChange(editorState) { }
 
     const exportHtml = () => {
         const htmlString = editorRef.current.exportHtml();
@@ -39,11 +39,15 @@ export default function App() {
 
     return (
         <>
-            <button type='button' onClick={exportHtml}>
-                Export
-            </button>
+            <div style={{ position: 'fixed', left: 10, top: 50 }}>
+                <button type='button' onClick={exportHtml}>
+                    Export Html
+                </button>
+            </div>
 
-            <RichEditor ref={editorRef} placeholder='Enter some rich text...' value={htmlString} onError={onError} onChange={onChange} />
+            <div className="editor-shell">
+                <RichEditor ref={editorRef} placeholder='Enter some rich text...' value={htmlString} onError={onError} onChange={onChange} />
+            </div>
         </>
     );
 }
