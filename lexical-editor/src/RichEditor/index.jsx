@@ -13,6 +13,7 @@ import MyOnChangePlugin from './plugins/MyOnChangePlugin';
 import ToolbarPlugin from './plugins/ToolbarPlugin';
 import TreeViewPlugin from './plugins/TreeViewPlugin';
 import ExampleTheme from './themes/EditorTheme';
+import PlaygroundNodes from './nodes/PlaygroundNodes';
 
 import './index.css';
 
@@ -57,6 +58,7 @@ function RichEditor(props, ref) {
     const initialConfig = {
         editorState: initEditorState,
         namespace: 'MyEditor',
+        nodes: [...PlaygroundNodes],
         theme: ExampleTheme,
         onError,
     };

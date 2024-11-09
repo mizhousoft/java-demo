@@ -69,8 +69,16 @@
         "webpack-dev-server": "5.1.0"
     },
     "dependencies": {
+        "@lexical/code": "0.20.0",
+        "@lexical/hashtag": "0.20.0",
         "@lexical/html": "0.20.0",
+        "@lexical/link": "0.20.0",
+        "@lexical/list": "0.20.0",
+        "@lexical/overflow": "0.20.0",
         "@lexical/react": "0.20.0",
+        "@lexical/rich-text": "0.20.0",
+        "@lexical/selection": "0.20.0",
+        "@lexical/table": "0.20.0",
         "@lexical/utils": "0.20.0",
         "lexical": "0.20.0",
         "react": "18.3.1",
