@@ -64,9 +64,10 @@ public class StuLeaveInitiator
 
 		Map<String, Object> variables = new HashMap<>();
 		variables.put("start", "start");
+		variables.put("action", "apply");
 
 		Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
-		// taskService.complete(task.getId(), variables);
+		taskService.complete(task.getId(), variables, true);
 	}
 
 	@Test
@@ -82,6 +83,30 @@ public class StuLeaveInitiator
 		        .list();
 
 		System.out.println(list);
+	}
+
+	@Test
+	public void back()
+	{
+		List<Task> tasks = taskService.createTaskQuery().taskCandidateUser("a").list();
+
+		Task task = tasks.get(0);
+
+		runtimeService.createChangeActivityStateBuilder()
+		        .processInstanceId(task.getProcessInstanceId())
+		        .moveActivityIdsToSingleActivityId(List.of(task.getTaskDefinitionKey()), "apply")
+		        .localVariable("apply", "action", "back")
+		        .changeState();
+	}
+
+	@Test
+	public void reExec()
+	{
+		Task task = taskService.createTaskQuery().taskAssignee("wangjun").singleResult();
+
+		Map<String, Object> variables = new HashMap<>();
+
+		taskService.complete(task.getId(), variables, true);
 	}
 
 	@Test
