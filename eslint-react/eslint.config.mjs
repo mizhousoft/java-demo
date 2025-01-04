@@ -7,24 +7,10 @@ export default antfu(
         ignores: [
             '**/node_modules/**',
             '**/dist/**',
-            '**/_site/**',
-            '**/es/**',
-            '**/lib/**',
-            '**/.dumi/tmp/**',
-            '**/.dumi/tmp-production/**',
-            '**/*.snap',
             '**/*.md',
-            '.dumi/scripts/clarity.js',
         ],
         settings: {
             polyfills: ['Promise', 'URL'],
-        },
-        javascript: {
-            parserOptions: {
-                ecmaFeatures: {
-                    jsx: true
-                }
-            }
         },
         stylistic: false,
         typescript: false,
