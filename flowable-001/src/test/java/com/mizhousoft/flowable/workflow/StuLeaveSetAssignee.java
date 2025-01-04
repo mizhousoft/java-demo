@@ -69,13 +69,34 @@ public class StuLeaveSetAssignee
 	}
 
 	@Test
-	public void terminate()
+	public void claim()
 	{
 		List<Task> tasks = taskService.createTaskQuery().taskCandidateUser("a").list();
 		Task task = tasks.get(0);
 
 		taskService.claim(task.getId(), "wanglaoshi");
+	}
 
-		taskService.setAssignee(task.getId(), "lishuo");
+	@Test
+	public void setAssignee()
+	{
+		List<Task> tasks = taskService.createTaskQuery().taskAssignee("wanglaoshi").list();
+		Task task = tasks.get(0);
+
+		taskService.setAssignee(task.getId(), "liliang");
+		taskService.setOwner(task.getId(), "wanglaoshi");
+	}
+
+	@Test
+	public void complete()
+	{
+		List<Task> tasks = taskService.createTaskQuery().taskAssignee("liliang").list();
+		Task task = tasks.get(0);
+
+		// 通过审核
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("outcome", "通过");
+
+		taskService.complete(task.getId(), map);
 	}
 }

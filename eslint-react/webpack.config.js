@@ -1,5 +1,4 @@
-var webpack = require('webpack')
-var path = require("path")
+var path = require("path");
 
 module.exports = {
     mode: 'development',
@@ -83,7 +82,7 @@ module.exports = {
     },
     devServer: {
         host: "0.0.0.0",
-        port: 8080,
+        port: 8081,
         hot: true,
         compress: true,
         open: false,
@@ -101,14 +100,4 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            ENV_TEST_ADMIN: JSON.stringify('admin'),
-            ENV_TEST_PASSWORD: JSON.stringify('Bmc@1234567'),
-        }),
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require('./manifest.json')
-        })
-    ]
 }
