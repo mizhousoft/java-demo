@@ -9,6 +9,7 @@
         "lint-fix:script": "npm run lint:script -- --fix",
         "lint-fix:style": "npm run lint:style -- --fix",
         "lint:script": "eslint ./src/**",
+        "lint:inspect": "eslint --inspect-config",
         "lint:style": "stylelint src/**/*.{css,less}",
         "prettier": "prettier -c --write ./src/**",
         "delete": "del /f/s/q node_modules && rmdir /s/q node_modules"
