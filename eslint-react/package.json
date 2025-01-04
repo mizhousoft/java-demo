@@ -10,7 +10,8 @@
         "lint-fix:style": "npm run lint:style -- --fix",
         "lint:script": "eslint ./src/**",
         "lint:style": "stylelint src/**/*.{css,less}",
-        "prettier": "prettier -c --write ./src/**"
+        "prettier": "prettier -c --write ./src/**",
+        "delete": "del /f/s/q node_modules && rmdir /s/q node_modules"
     },
     "keywords": [],
     "author": "",
