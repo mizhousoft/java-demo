@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+    xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:flowable="http://flowable.org/bpmn"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
+    targetNamespace="http://www.activiti.org/processdef">
+    <process id="leave-parallel" isExecutable="true">
+        <startEvent id="start" />
+        <parallelGateway id="gateway1" flowable:initiator="initiator" />
+        <userTask id="employee1" name="员工一" flowable:assignee="employee1">
+            <extensionElements>
+                <flowable:operationList />
+                <flowable:variableList />
+                <flowable:copyItemList />
+            </extensionElements>
+        </userTask>
+        <userTask id="employee2" name="员工二" flowable:assignee="employee2">
+            <extensionElements>
+                <flowable:operationList />
+                <flowable:variableList />
+                <flowable:copyItemList />
+            </extensionElements>
+        </userTask>
+        <userTask id="manager" name="部门经理" flowable:assignee="manager">
+            <extensionElements>
+                <flowable:operationList />
+                <flowable:variableList />
+                <flowable:copyItemList />
+            </extensionElements>
+        </userTask>
+        <parallelGateway id="join1" />
+        <sequenceFlow id="sid-EDCEFC1E-8C16-406B-9A75-997DF7CFAA03" sourceRef="join1" targetRef="manager" />
+        <sequenceFlow id="sid-2C603D09-4CDA-4BF7-8C81-BC543541AF36" sourceRef="start" targetRef="gateway1" />
+        <sequenceFlow id="sid-F7B8E655-8FC5-4205-93D8-64F39881DE28" sourceRef="employee1" targetRef="join1" />
+        <sequenceFlow id="sid-EEBE283A-BB90-44E1-A6FA-88AA1CE52C39" sourceRef="employee2" targetRef="join1" />
+        <sequenceFlow id="sid-BC06774A-44A2-43FA-BDF4-A5E701B3999A" sourceRef="gateway1" targetRef="employee1" />
+        <userTask id="director" name="主管" flowable:assignee="director">
+            <extensionElements>
+                <flowable:operationList />
+                <flowable:variableList />
+                <flowable:copyItemList />
+            </extensionElements>
+        </userTask>
+        <sequenceFlow id="sid-7BA5A3D9-7BA9-4A3E-AF0A-E0F05A20FCC2" sourceRef="gateway1" targetRef="director" />
+        <sequenceFlow id="sid-035CCFB1-2074-409A-8ADB-13CD37A98A1E" sourceRef="gateway1" targetRef="employee2" />
+        <parallelGateway id="join2" />
+        <sequenceFlow id="sid-C2EBDC51-ABEC-4B69-9924-0101B7EA9E91" sourceRef="manager" targetRef="join2" />
+        <sequenceFlow id="sid-85C1D7AE-4568-427E-8E6D-AFC79ED41FD9" sourceRef="director" targetRef="join2" />
+        <userTask id="boss" name="老板" flowable:assignee="boss">
+            <extensionElements>
+                <flowable:operationList />
+                <flowable:variableList />
+                <flowable:copyItemList />
+            </extensionElements>
+        </userTask>
+        <sequenceFlow id="sid-FD581601-B9AC-4E1E-8161-8EA8A84844B2" sourceRef="join2" targetRef="boss" />
+        <endEvent id="end" />
+        <sequenceFlow id="sid-78026DEB-C4DA-4BF4-9723-C4EE9124E785" sourceRef="boss" targetRef="end" />
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_process">
+        <bpmndi:BPMNPlane id="BPMNPlane_process" bpmnElement="process">
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-78026DEB-C4DA-4BF4-9723-C4EE9124E785"
+                bpmnElement="sid-78026DEB-C4DA-4BF4-9723-C4EE9124E785">
+                <omgdi:waypoint x="790" y="190" />
+                <omgdi:waypoint x="835" y="190" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-FD581601-B9AC-4E1E-8161-8EA8A84844B2"
+                bpmnElement="sid-FD581601-B9AC-4E1E-8161-8EA8A84844B2">
+                <omgdi:waypoint x="653.6739130434783" y="198.67391304347825" />
+                <omgdi:waypoint x="690" y="195.02392344497608" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-85C1D7AE-4568-427E-8E6D-AFC79ED41FD9"
+                bpmnElement="sid-85C1D7AE-4568-427E-8E6D-AFC79ED41FD9">
+                <omgdi:waypoint x="377" y="265" />
+                <omgdi:waypoint x="635" y="265" />
+                <omgdi:waypoint x="635" y="220" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-C2EBDC51-ABEC-4B69-9924-0101B7EA9E91"
+                bpmnElement="sid-C2EBDC51-ABEC-4B69-9924-0101B7EA9E91">
+                <omgdi:waypoint x="580" y="115" />
+                <omgdi:waypoint x="635.5" y="115" />
+                <omgdi:waypoint x="635.5" y="180.5" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-035CCFB1-2074-409A-8ADB-13CD37A98A1E"
+                bpmnElement="sid-035CCFB1-2074-409A-8ADB-13CD37A98A1E">
+                <omgdi:waypoint x="219.57539682539684" y="160.42460317460316" />
+                <omgdi:waypoint x="277" y="160.19762845849803" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-7BA5A3D9-7BA9-4A3E-AF0A-E0F05A20FCC2"
+                bpmnElement="sid-7BA5A3D9-7BA9-4A3E-AF0A-E0F05A20FCC2">
+                <omgdi:waypoint x="200.5" y="179.5" />
+                <omgdi:waypoint x="200.5" y="265" />
+                <omgdi:waypoint x="277" y="265" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-BC06774A-44A2-43FA-BDF4-A5E701B3999A"
+                bpmnElement="sid-BC06774A-44A2-43FA-BDF4-A5E701B3999A">
+                <omgdi:waypoint x="200.5" y="140.5" />
+                <omgdi:waypoint x="200.5" y="64" />
+                <omgdi:waypoint x="277" y="64" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-EEBE283A-BB90-44E1-A6FA-88AA1CE52C39"
+                bpmnElement="sid-EEBE283A-BB90-44E1-A6FA-88AA1CE52C39">
+                <omgdi:waypoint x="377" y="160" />
+                <omgdi:waypoint x="433" y="160" />
+                <omgdi:waypoint x="433" y="137" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-F7B8E655-8FC5-4205-93D8-64F39881DE28"
+                bpmnElement="sid-F7B8E655-8FC5-4205-93D8-64F39881DE28">
+                <omgdi:waypoint x="377" y="64" />
+                <omgdi:waypoint x="433" y="64" />
+                <omgdi:waypoint x="433" y="97" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-2C603D09-4CDA-4BF7-8C81-BC543541AF36"
+                bpmnElement="sid-2C603D09-4CDA-4BF7-8C81-BC543541AF36">
+                <omgdi:waypoint x="105" y="160" />
+                <omgdi:waypoint x="180" y="160" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_sid-EDCEFC1E-8C16-406B-9A75-997DF7CFAA03"
+                bpmnElement="sid-EDCEFC1E-8C16-406B-9A75-997DF7CFAA03">
+                <omgdi:waypoint x="452.9949494949495" y="116.9949494949495" />
+                <omgdi:waypoint x="480" y="116.29533678756476" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="start_di" bpmnElement="start">
+                <omgdc:Bounds x="75" y="145" width="30" height="30" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="gateway1_di" bpmnElement="gateway1">
+                <omgdc:Bounds x="180" y="140" width="40" height="40" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="employee1_di" bpmnElement="employee1">
+                <omgdc:Bounds x="277" y="24" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="employee2_di" bpmnElement="employee2">
+                <omgdc:Bounds x="277" y="120" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="manager_di" bpmnElement="manager">
+                <omgdc:Bounds x="480" y="75" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="join1_di" bpmnElement="join1">
+                <omgdc:Bounds x="413" y="97" width="40" height="40" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="director_di" bpmnElement="director">
+                <omgdc:Bounds x="277" y="225" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="join2_di" bpmnElement="join2">
+                <omgdc:Bounds x="615" y="180" width="40" height="40" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="boss_di" bpmnElement="boss">
+                <omgdc:Bounds x="690" y="150" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="end_di" bpmnElement="end">
+                <omgdc:Bounds x="835" y="176" width="28" height="28" />
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>
