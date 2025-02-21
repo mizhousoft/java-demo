@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.mizhousoft</groupId>
 		<artifactId>mizhousoft-bom</artifactId>
-		<version>2.1.0</version>
+		<version>2.1.1</version>
 	</parent>
 
 	<groupId>com.mizhousoft.demo</groupId>
@@ -16,7 +16,7 @@
 	<name>java-demo</name>
 
 	<properties>
-		<commons.version>2.1.0</commons.version>
+		<commons.version>2.1.1</commons.version>
 	</properties>
 
 	<modules>
